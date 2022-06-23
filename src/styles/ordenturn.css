@@ -1,0 +1,26 @@
+.style-turn{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: 2px solid #f8f9fa;
+    box-shadow: 2px 2px 2px #e9ecef;
+    padding: 20px;
+}
+
+.style-turn:hover{
+    box-shadow: 5px 5px 5px #e9ecef;
+}
+
+.style-turn{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-delete{
+    background-color: #ef233c;
+    color:#FFFFFF;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+}
