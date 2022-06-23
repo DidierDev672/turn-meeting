@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    place-content: center;
+}
+
+.box-navbar{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-navbar{
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    box-shadow: 3px 3px 3px #dee2e6;
+}
+
+.list-box{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+}
+
+.list-item{
+    list-style: none;
+    color: #212529;
+}
+
+.list-link{
+    text-decoration: none;
+    color: #212529;
+}
+
+.list-box-right{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-left: 240px;
+}
