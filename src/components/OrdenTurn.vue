@@ -1,7 +1,14 @@
 <template>
 <section>
     <div class="style-turn">
-        <span><strong :class="{assets: phase, }"> {{ letter_turn }}: </strong> {{ n_turn }}</span>
+        <div class="design-border">
+            <div class="item-border">
+                <span class="letter-turn">{{ letter_turn  }}</span>
+            </div>
+            <div class="item-border">
+                <span class="n-turn">{{ n_turn }}</span>
+            </div>
+        </div>
         <div :class="{completed: phase, desactive: phase == false}">
             <span> {{ state_turn }} </span>
         </div>
@@ -11,8 +18,6 @@
 
 <script>
 import "../styles/ordenturn.css"
-
-import Assets from "../components/Assets.vue"
 export default {
     name: "orden-turn",
     props:{
@@ -21,11 +26,6 @@ export default {
         n_turn: Number,
         phase: Boolean,
     },
-
-    components:{
-        Assets
-    },
-
     computed:{
         state_turn(){
             return this.phase == true ? 'Activo': 'Desastivado'
