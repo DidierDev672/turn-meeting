@@ -1,35 +1,54 @@
-.container {
+.container{
     display: flex;
     place-content: center;
-    padding: 10px;
 }
 
 .flex-box{
     display: flex;
     flex-direction: row;
     gap: 20px;
-}
-
-.box-item{
-    background-color: #ffffff;
-    color: #2b2d42;
-    border-radius: 5px;
-    border: 2px solid #f8f9fa;
-    box-shadow: 3px 3px 3px #e9ecef;
-}
-
-.box-item{
-    width: 12rem;
+    justify-content: center;
     padding: 20px;
 }
 
-.btn-ask{
-    background-color: #0077b6;
-    color: #ffffff;
+.box-item{
+    background-color: #FFFFFF;
     border-radius: 5px;
-    border: 2px solid #0077b6;
+    border: 2px solid #f8f9fa;
+    box-shadow: 3px 3px 3px #e9ecef;
+    padding: 20px;
+    font-weight: 600;
 }
 
-.btn-ask:hover{
-    box-shadow: 2px 2px 2px #0096c7;
+.box-item{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.box-item:hover{
+    box-shadow: 5px 5px 5px #e9ecef;
+}
+
+.letter-turn{
+    height: 15px;
+}
+
+.item-button{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-ask{
+    background-color: #90e0ef;
+    color: #212529;
+    border-radius: 5px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.btn-ask{
+    text-decoration: none;
+    height: 20px;
 }
