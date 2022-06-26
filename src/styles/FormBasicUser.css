@@ -1,0 +1,10 @@
+.form-item-locker{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item-button-locker{
+    display: flex;
+    place-content: center;
+}

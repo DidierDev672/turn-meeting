@@ -1,54 +1,50 @@
 <template>
-    <div class="container">
-        <form class="flex-turn">
-        <div class="grid-turn">
-            <div class="flex-item">
-            <span>Facturacion : A</span>
-            <input type="checkbox" class="check-box" />
+<div class="container">
+    <div class="box-turn">
+        <div class="flex-turn">
+            <div class="grid-turn">
+                <div class="grid-item">
+                    <input type="checkbox" />
+                    <div class="type-turn">
+                        <span>Facturacion</span>
+                    </div>
+                    <div class="number-turn">
+                        <span>A</span>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <input type="checkbox" />
+                    <div class="type-turn">
+                        <span>Anexos</span>
+                    </div>
+                    <div class="number-turn">
+                        <span class="letter_turn">B</span>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <input type="checkbox" />
+                    <div class="type-turn">
+                        <span>Historia clinica</span>
+                    </div>
+                    <div class="number-turn">
+                        <span class="letter_turn">C</span>
+                    </div>
+                </div>
             </div>
-            <div class="flex-item">
-            <span>Anexos : B</span>
-            <input type="checkbox" class="check-box" />
-            </div>
-            <div class="flex-item">
-            <span>Historia Clinica : C</span>
-            <input type="checkbox" class="check-box" />
-            </div>
         </div>
-        <div class="turn-item">
-            <label>N° Identificacion / "Ceduala o Tarjeta de identidad"</label>
-            <input
-            type="text"
-            class="text-input"
-            placeholder="Numero de identificacion o 'Cedula'"
-            />
-        </div>
-        <div class="turn-item">
-            <label>Numero telefono</label>
-            <input
-            type="text"
-            class="text-input"
-            placeholder="Numero de telefono"
-            />
-        </div>
-        <div class="turn-item">
-            <label>Correo electronico</label>
-            <input
-            type="text"
-            class="text-input"
-            placeholder="example@example.com"
-            />
-        </div>
-        <div class="turn-item">
-            <button type="button" class="btn-ask">Solicitar</button>
-        </div>
-        </form>
+        <basic-turn />
     </div>
-    </template>
+</div>
+</template>
 
-    <script>
-    import "../styles/turn.css";
-    export default {
-    name: "turn",
-    };
-    </script>
+<script>
+import "../styles/turn.css"
+
+import BasicTurn from "../components/BasicTurn.vue"
+export default {
+    name: 'turn',
+    components:{
+        BasicTurn
+    }
+}
+</script>

@@ -2,19 +2,7 @@
 <div class="container">
     <div class="flex-box">
         <div class="box-item">
-            <span>Taquilla: A</span>
-            <br />
-            <button type="button" class="btn-ask">Solicitar</button>
-        </div>
-        <div class="box-item">
-            <span>Historia clinica: B</span>
-            <br />
-            <button type="button" class="btn-ask" @click="modalBasic">Solicitar</button>
-        </div>
-        <div class="box-item">
-            <span>Anexos: C</span>
-            <br />
-            <button type="button" class="btn-ask">Solicitar</button>
+            <locker />
         </div>
     </div>
 </div>
@@ -22,12 +10,21 @@
 
 <script>
 import "../styles/home.css"
-import MyTurn from "../page/MyTurn.vue"
+
+import Locker from "../components/Locker.vue"
 export default {
     name: 'Home',
 
+    data(){
+        return{
+            letter_A: 'A',
+            letter_B: 'B',
+            letter_C: 'C'
+        }
+    },
+
     components:{
-        MyTurn
+        Locker
     },
 }
 </script>

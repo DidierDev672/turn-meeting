@@ -1,0 +1,23 @@
+.flex-locker{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.box-locker{
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    box-shadow: 2px 2px 2px #dee2e6;
+    padding: 10px;
+}
+
+.box-locker:hover{
+    box-shadow: 5px 5px 5px #dee2e6;
+}
+
+.item-box-locker{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}

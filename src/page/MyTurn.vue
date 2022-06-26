@@ -2,7 +2,7 @@
 <div class="container">
     <div>
         <template v-if="uid !==''">
-        <div class="flex-turn">
+        <div class="flex-myturn">
             <orden-turn v-for="(list, index) in listTurn" :key="index"
             :id="list.id" :n_turn="list.n_turn" :letter_turn="list.letter_turn" :phase="list.phase" />
         </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import "../styles/turn.css"
+import "../styles/myturn.css"
 import types from "../global/index"
 
 import { mapGetters } from "vuex"
