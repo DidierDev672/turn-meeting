@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory} from "vue-router"
 import Home from "../page/Home.vue"
 import Turn from "../page/Turn.vue"
 import MyTurn from "../page/MyTurn.vue"
-import SignIn from "../page/SingIn.vue"
+import SignIn from "../page/SignIn.vue"
 import SignUp from "../page/SignUp.vue"
 import AwaitRoom from "../page/AwaitRoom.vue"
 
