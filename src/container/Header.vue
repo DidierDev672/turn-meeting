@@ -1,39 +1,76 @@
 <template>
-<div class="container">
-    <nav class="box-navbar">
-        <div class="header-header-turn">
-            <router-link to="/" class="list-link title-header-turn">Turn Meeting</router-link>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+        <h2 class="navbar-brand">Turn meeting</h2>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <router-link class="nav-link active" aria-current="page" to="/"
+                >Home</router-link
+                >
+            </li>
+            <li class="nav-item">
+                <router-link class="nav-link active" to="/turn">Turnos</router-link>
+            </li>
+            <li class="nav-item">
+                <router-link class="nav-link active" to="/my-turn"
+                >Mis turnos</router-link
+                >
+            </li>
+            <li class="nav-item">
+                <router-link class="nav-link active" to="/room-await"
+                >Sala espera</router-link
+                >
+            </li>
+            </ul>
+            <form class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <template v-if="uid !== ''">
+                <li class="nav-item dropdown">
+                    <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    >
+                    {{ email }}
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li class="dropdown-item">Editar perfil</li>
+                    <li class="dropdown-item">Cerrar Session</li>
+                    </ul>
+                </li>
+                </template>
+                <template v-else>
+                <li class="nav-item">
+                    <router-link class="nav-link active" to="/sign-in"
+                    >Sign In</router-link
+                    >
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link active" to="/sign-up"
+                    >Sign Up</router-link
+                    >
+                </li>
+                </template>
+            </ul>
+            </form>
         </div>
-        <ul class="list-box">
-            <li class="list-item">
-                <router-link to="/" class="list-link">Home</router-link>
-            </li>
-            <li class="list-item">
-                <router-link to="/turn" class="list-link">Turnos</router-link>
-            </li>
-            <li class="list-item">
-                <router-link to="/my-turn" class="list-link">Mis turnos</router-link>
-            </li>
-            <li class="list-item">
-                <router-link to="/await-room" class="list-link">Sala espera</router-link>
-            </li>
-        </ul>
-        <ul class="list-box-right">
-            <template v-if="uid !== ''">
-                <header-user :uid="uid" :email="email" :name_full="name_full" />
-            </template>
-            <template v-else>
-                <li class="list-item">
-                <router-link to="/sign-in" class="list-link">Sign In</router-link>
-            </li>
-            <li class="list-item">
-                <router-link to="/sign-up" class="list-link">Sign Up</router-link>
-            </li>
-            </template>
-        </ul>
+        </div>
     </nav>
-</div>
-</template>
+    </template>
 
 <script>
 import "../styles/header.css";
@@ -41,27 +78,27 @@ import HeaderUser from "../components/HeaderUser.vue";
 import { auth } from "../api/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 export default {
-    name: 'Header',
-    data(){
-        return{
-            uid: "",
-            email: "",
-            name_full: ""
-        }
+name: "Header",
+    data() {
+        return {
+        uid: "",
+        email: "",
+        name_full: "",
+        };
     },
 
-    components:{
-        HeaderUser
+    components: {
+        HeaderUser,
     },
 
-    created(){
+    created() {
         onAuthStateChanged(auth, (user) => {
-            if(user){
-                this.uid = user.uid,
-                this.email = user.email,
-                this.name_full = user.name
-            }
+        if (user) {
+            (this.uid = user.uid),
+            (this.email = user.email),
+            (this.name_full = user.name);
+        }
         });
-    }
-}
+    },
+};
 </script>
