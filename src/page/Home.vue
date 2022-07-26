@@ -11,7 +11,7 @@
 <script>
 import "../styles/home.css"
 
-import Locker from "../components/Locker.vue"
+import Locker from "../container/Locker.vue"
 export default {
     name: 'Home',
 

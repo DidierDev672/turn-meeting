@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    place-content: center;
+}
+
+.flex-turn-await{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+}
+
+.box-turn-await{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    box-shadow: 3px 3px 3px #dee2e6;
+    padding: 10px;
+}
+
+.box-turn-await:hover{
+    box-shadow: 5px 5px 5px #dee2e6;
+}
+
+.item-turn-await{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}

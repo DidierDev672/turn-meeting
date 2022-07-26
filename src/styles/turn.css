@@ -5,10 +5,11 @@
 }
 
 .box-turn{
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     border-radius: 5px;
     border: 2px solid #e9ecef;
     box-shadow: 3px 3px 3px #dee2e6;
+    padding: 20px;
 }
 
 .flex-turn{

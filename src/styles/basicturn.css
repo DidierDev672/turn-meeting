@@ -1,8 +1,8 @@
-.grid-turn{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    grid-template-rows: minmax(50px, auto);
+.flex-turn-locker{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
 }
 
 .form-item{
@@ -41,4 +41,13 @@
 
 .btn-turn{
     margin: auto;
+}
+
+.select-locker{
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    box-shadow: 3px 3px 3px #dee2e6;
+    text-align: center;
+    padding: 5px;
 }

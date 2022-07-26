@@ -1,19 +1,16 @@
 <template>
 <div class="container">
-    <div class="box-turn">
-        <div class="flex-turn">
-            <basic-turn />
-        </div>
+    <div class="flex-locker">
+        <basic-turn />
     </div>
 </div>
 </template>
 
 <script>
-import "../styles/turn.css"
-
+import "../styles/locker.css"
 import BasicTurn from "../components/BasicTurn.vue"
 export default {
-    name: 'turn',
+    name:'locker',
     components:{
         BasicTurn
     }

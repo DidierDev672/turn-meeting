@@ -15,7 +15,7 @@
                 <router-link to="/my-turn" class="list-link">Mis turnos</router-link>
             </li>
             <li class="list-item">
-                <router-link to="/" class="list-link">Sala espera</router-link>
+                <router-link to="/await-room" class="list-link">Sala espera</router-link>
             </li>
         </ul>
         <ul class="list-box-right">
