@@ -1,22 +1,16 @@
-import { createRouter, createWebHashHistory} from "vue-router"
-import Home from "../page/Home.vue"
-import Turn from "../page/Turn.vue"
-import MyTurn from "../page/MyTurn.vue"
-import SignIn from "../page/SignIn.vue"
-import SignUp from "../page/SignUp.vue"
-import AwaitRoom from "../page/AwaitRoom.vue"
+import { createRouter, createWebHashHistory} from "vue-router";
+import Home from "../page/Home.vue";
+import Turns from "../page/Turns.vue";
+import SignIn from "../page/SignIn.vue";
+import SignUp from "../page/SignUp.vue";
 
-import BasicTurn from "../components/BasicTurn.vue"
 
 const routes = [
     {path: '/', component: Home},
     {path: '/home', component: Home},
-    {path: '/turn', component: Turn},
-    {path: '/my-turn', component: MyTurn},
-    {path: '/await-room', component: AwaitRoom},
+    {path: '/turns', component: Turns},
     {path: '/sign-in', component: SignIn},
-    {path: '/sign-up', component: SignUp},
-    {path: '/basic-solict/:letter', name: 'basic-turn', component: BasicTurn, props: true}
+    {path: '/sign-up', component: SignUp}
 ]
 
 const router = createRouter({

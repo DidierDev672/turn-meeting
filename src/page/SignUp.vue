@@ -1,64 +1,60 @@
 <template>
-    <div class="container">
-        <form class="box-sign-up" action="./SignUp.vue" method="post">
-        <label class="title-sign-up">Register User </label>
-        <div class="flex-sign-up">
-            <div class="sign-item">
-            <label>Correo electronico</label>
-            <input
-                type="text"
-                class="text-input"
-                v-model="email"
-                placeholder="example@example.com"
-                pattern="/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"
-                required
-            />
-            </div>
-            <div class="sign-item">
-            <label>Contraseña</label>
-            <input
-                type="password"
-                class="text-input"
-                v-model="password_user"
-                pattern="^(?=w*\d)(?=\w*[a-z])\S{8,16}$"
-                placeholder="Contraseña"
-                required
-            />
-            </div>
+    <div class="container py-3">
+        <div class="box-card-sign-up">
+            <form>
+                <div class="flex-form-sign-up">
+                    <div class="flex-item-sign-up">
+                        <label class="title-sign-up">Sign Up</label>
+                    </div>
+                    <div class="flex-item-sign-up">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" id="email"
+                        class="text-campo" v-model="email" required
+                        placeholder="example@example.com"/>
+                    </div>
+                    <div class="flex-item-sign-up">
+                        <label for="pwd">Contraseña</label>
+                        <input type="password" id="pwd"
+                        class="text-campo" placeholder="****************"
+                        required v-model="pwd"/>
+                    </div>
+                    <div class="flex-item-sign-up">
+                        <button type="button" class="btn-sign-up" @click="createUser()" >Sign Up</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="item-button">
-            <input type="submit" class="btn-sign-up" @click="CreateAuth()" value="Registrar" />
-        </div>
-        </form>
     </div>
 </template>
 
 <script>
 import "../styles/signup.css";
-import { mapActions } from "vuex";
+
+import {mapActions } from "vuex";
 export default {
     name: "sign-up",
-    data() {
-        return {
-        email: "",
-        password_user: "",
-        };
+    data(){
+        return{
+            email: "",
+            pwd: ""
+        }
     },
-    methods: {
-        ...mapActions("user", ["CreateUser", "RegisterUser"]),
 
-        CreateAuth() {
-            if( this.email !== "" && this.password_user !== ""){
-                this.CreateUser({
-                    email: this.email,
-                    password: this.password_user,
-                }),
-                this.email = '',
-                this.password_user = ''
+    methods:{
+        ...mapActions("user", [
+            "CreateUser"
+        ]),
+
+        createUser(){
+            if(this.email !== "" && this.pwd !== ""){
+            this.CreateUser({
+                email: this.email,
+                password: this.password
+            });
             }else{
-                alert("No deben a ver campos vacios!");
+                alert("Deben llenar todos los campos!");
             }
-        },
-    },
-};
+        }
+    }
+}
 </script>
