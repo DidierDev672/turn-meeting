@@ -1,0 +1,59 @@
+.box-card-edit-profile{
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    box-shadow: 3px 3px 3px #dee2e6;
+    padding: 10px;
+}
+
+.box-card-edit-profile:hover{
+    box-shadow: 5px 5px 5px #dee2e6;
+}
+
+.flex-form-edit-profile{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.flex-form-edit-profile{
+    padding: 20px;
+}
+
+.item-form-edit-profile{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-profile{
+    width: 7rem;
+    background-color: #caf0f8;
+    color: #212529;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn-profile{
+    margin: auto;
+}
+
+.title-edit-profile{
+    font-size: 25px;
+    color: #212529;
+    font-weight: 600;
+}
+
+.title-name-edit-profile{
+    font-size: 20px;
+    color: #212529;
+    font-weight: 600;
+}

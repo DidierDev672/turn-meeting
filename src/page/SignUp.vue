@@ -42,19 +42,24 @@ export default {
 
     methods:{
         ...mapActions("user", [
-            "CreateUser"
+            "CreateUser",
+            "watchfulAuth"
         ]),
 
         createUser(){
             if(this.email !== "" && this.pwd !== ""){
             this.CreateUser({
                 email: this.email,
-                password: this.password
+                password: this.pwd
             });
             }else{
                 alert("Deben llenar todos los campos!");
             }
         }
+    },
+
+    created(){
+        this.watchfulAuth();
     }
 }
 </script>
