@@ -1,0 +1,224 @@
+.card-await-room{
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    box-shadow: 3px 3px 3px #dee2e6;
+    padding: 10px;
+}
+
+.card-await-room:hover{
+    box-shadow: 5px 5px 5px #dee2e6;
+}
+
+.flex-await-room{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.header-await-room{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    place-content: center;
+}
+
+.title-await-room{
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 58px;
+}
+
+.title-await-ticket{
+    font-size: 32px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 32px;
+}
+
+.header-await-ticket{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.flex-await-ticket{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-flex-await-ticket{
+    display: flex;
+    flex-direction: column;
+    flex-direction: nowrap;
+    place-content: center;
+}
+
+.header-attention-ticket{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    place-content: center;
+}
+
+.title-attention{
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 32px;
+}
+
+.flex-attention-ticket{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-attention-ticket{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    place-content: center;
+}
+
+.card-billing{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid #f8f9fa;
+    box-shadow: 3px 3px 3px #e9ecef;
+    padding: 10px;
+}
+
+.card-billing:hover{
+    box-shadow: 5px 5px 5px #e9ecef;
+}
+
+.flex-billing{
+    display: flex;
+    flex-direction: row;
+    flex-direction: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item-billing{
+    display: flex;
+    flex-direction: column;
+    flex-direction: nowrap;
+    gap: 10px;
+    place-content: center;
+}
+
+.item-billing{
+    font-size: 20px;
+    font-style:normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.card-annex{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid #f8f9fa;
+    box-shadow: 3px 3px 3px #e9ecef;
+    padding: 10px;
+}
+
+.card-annex:hover{
+    box-shadow: 5px 5px 5px #e9ecef;
+}
+
+.flex-annex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-annex{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    place-content: center;
+}
+
+.item-annex{
+    font-size: 20px;
+    font-style:normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.card-history-clinic{
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid #f8f9fa;
+    box-shadow: 3px 3px 3px #e9ecef;
+    padding: 10px;
+}
+
+.flex-history-clinic{
+    display: flex;
+    flex-direction: row;
+    flex-direction: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item-history-clinic{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    place-content: center;
+}
+
+.item-history-clinic{
+    font-size: 20px;
+    font-style:normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.card-item-await-ticket{
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 2px solid #e9ecef;
+    box-shadow: 3px 3px 3px #dee2e6;
+    padding: 20px;
+}
+
+.card-item-await-ticket:hover{
+    box-shadow: 5px 5px 5px #dee2e6;
+}
+
+.sub-title-await-ticket{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.title-await-ticket{
+    font-size: 32px;
+    font-weight: 900;
+    font-style: normal;
+    line-height: 32px;
+}
+
+.title-attention-ticket{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}

@@ -1,6 +1,9 @@
 import { db } from "./firebase"
-import { collection, addDoc, updateDoc, doc } from "firebase/firestore"
+import { collection, addDoc, updateDoc, doc, getDocs} from "firebase/firestore"
+
+// Reference of the collection firestore
 const UserRef = "dataProfile";
+const TurnsRef = "turns";
 
 export default {
     async EditProfile({ uid, nameUser, phone,email, password }){
@@ -23,5 +26,20 @@ export default {
             "email": email,
             "phone": phone
         });
-    }
+    },
+    AssignTurn({uid, number_turn, letter_turn,date_turn, code_turn, email, phone}){
+        const turnsRef = addDoc(collection(db, TurnsRef),{
+            uid: uid,
+            number_turn: number_turn,
+            letter_turn: letter_turn,
+            date_turn: date_turn,
+            code_turn: code_turn,
+            email: email,
+            phone: phone,
+            status_turn:false,
+            active_turn:false,
+        });
+
+        return turnsRef;
+    },
 }

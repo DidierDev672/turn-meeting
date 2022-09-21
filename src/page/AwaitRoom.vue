@@ -1,54 +1,28 @@
 <template>
-<div class="container-await-room">
-<div class="turn-available">
-    <span>Turnos en taquillas</span>
-    <div class="flex-turn-available-await">
-        <turn-available v-for="(list, index) in listTurnAvailable" :key="index"
-        :id="list.id" :uuid="list.uuid" :n_turn="list.n_turn" :code_turn="list.code_turn"
-        :letter_turn="list.letter_turn" :phase="list.phase" :active_turn="list.active_turn" />
+    <div class="container-fluid py-3">
+        <div class="card-await-room">
+            <div class="header-await-room">
+                <h3 class="title-await-ticket">Sala de espera</h3>
+            </div>
+            <div class="flex-attention-room">
+                <attention-ticket />
+            </div>
+            <div class="flex-await-room py-3">
+                <await-ticket />
+            </div>
+        </div>
     </div>
-</div>
-<div class="turn-await">
-    <span>Turnos en espera</span>
-    <div class="flex-turn-onCall-await">
-        <turn-await v-for="(list, index) in listTurnAwait" :key="index"
-        :id="list.id" :uuid="list.uuid" :n_turn="list.n_turn" :code_turn="list.code_turn"
-        :letter_turn="list.letter_turn" :phase="list.phase" :active_turn="list.active_turn" />
-    </div>
-</div>
-</div>
 </template>
 
 <script>
-import "../styles/awaitroom.css"
-import TurnAvailable from "../components/TurnAvailable.vue"
-import TurnAwait from "../components/TurnAwait.vue"
-import { mapGetters } from "vuex"
+import "../styles/awaitroom.css";
+import AwaitTicket from "../container/AwaitTicket.vue";
+import AttentionTicket from "../container/AttentionTicket.vue";
 export default {
-    name: 'await-room',
-    data(){
-        return{
-            available: true,
-            onCall: false,
-        }
-    },
+    name: "await-room",
     components:{
-        TurnAvailable,
-        TurnAwait
-    },
-    computed:{
-        ...mapGetters('turn', [
-            'turnAvailable',
-            'turnAwait'
-        ]),
-
-        listTurnAvailable(){
-            return this.turnAvailable(this.available)
-        },
-
-        listTurnAwait(){
-            return this.turnAwait(this.onCall)
-        }
+        AwaitTicket,
+        AttentionTicket
     }
 }
 </script>

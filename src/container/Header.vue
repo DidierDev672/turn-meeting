@@ -12,13 +12,13 @@
                         <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"  href="#"> My turn's </a>
+                        <router-link class="nav-link active" aria-current="page"  to="/my-turns"> My turn's </router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link active" aria-current="page" to="/turns">Turn's</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Room await</a>
+                        <router-link class="nav-link active" aria-current="page" to="/await-room">Room await</router-link>
                     </li>
                 </ul>
                 <template v-if="uid !== ''">

@@ -1,109 +1,130 @@
-const state = () => ({
-    turn:[
-        {
-            id: "1",
-            uid: '982a9cb2-0ae4-442f-a27b-ab7ddaeaa899',
-            n_turn: 1,
-            code_turn: "FR6bwx1q",
-            letter_turn: "A",
-            phase: false
-        },
-        {
-            id: "2",
-            uid: '982a9cb2-0ae4-442f-a27b-ab7ddaeaa899',
-            n_turn: 23,
-            code_turn: "ByamOdWV",
-            letter_turn: "B",
-            phase: true
-        },
-        {
-            id: "3",
-            uid: '982a9cb2-0ae4-442f-a27b-ab7ddaeaa899',
-            n_turn: 55,
-            code_turn: "7roFwfQs",
-            letter_turn: "C",
-            phase: true
-        },
-    ],
+import * as types from "../types-mutations";
+import API from "../../api/index";
+import voucher_code from "voucher-code-generator";
+import { db } from "../../api/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import Functions from "../../mixins/functions";
 
-    awaitRoom:[
-        {
-            id:"1",
-            uuid: "982a9cb2-0ae4-442f-a27b-ab7ddaeaa899",
-            n_turn: 12,
-            code_turn: "FR6bwx1q",
-            letter_turn: "A",
-            phase: true,
-            active_turn: true,
-        },
-        {
-            id: "2",
-            uuid: "6ca6483e-f71c-11ec-b939-0242ac120002",
-            n_turn: 13,
-            code_turn: "ByamOdWV",
-            letter_turn: "A",
-            phase: true,
-            active_turn: false,
-        },
-        {
-            id:"3",
-            uuid: "bb8d4ace-f71c-11ec-b939-0242ac120002",
-            n_turn: 14,
-            code_turn: "7roFwfQs",
-            letter_turn: "A",
-            pahese: true,
-            active_turn: true,
-        },
-        {
-            id: "4",
-            uuid: "0fd762a4-f71d-11ec-b939-0242ac120002",
-            n_turn: 15,
-            code_turn: "rmWlwvll",
-            letter_turn: "A",
-            pahese: true,
-            active_turn: true
-        },
-        {
-            id: "5",
-            uuid: "982a9cb2-0ae4-442f-a27b-ab7ddaeaa899",
-            n_turn: 1,
-            code_turn: "pgih5eAB",
-            letter_turn: "C",
-            pahse: true,
-            active_turn: false
-        },
-        {
-            id:"6",
-            uuid: "0fd762a4-f71d-11ec-b939-0242ac120002",
-            n_turn: 2,
-            code_turn: "r45nhfr",
-            letter_turn: "B",
-            phase: true,
-            active_turn: false
-        }
-    ]
+const state = () => ({
+    fetchingData: false,
+    error: null,
+    turns:[
+        { active_turn: false, code_turn: "fg1x", letter_turn: "A", number_turn: 5, status_turn: false  },
+        { active_turn: false, code_turn: "hwKc", letter_turn: "A", number_turn: 11, status_turn: false },
+        { active_turn: false, code_turn: "j7WB", letter_turn: "C", number_turn: 2, status_turn: false },
+        { active_turn: true, code_turn: "je17", letter_turn: "A", number_turn: 9, status_turn: true },
+        { active_turn: true, code_turn: "rlbL", letter_turn: "A", number_turn: 12, status_turn: true },
+        { active_turn: true, code_turn: "Ej69", letter_turn: "C", number_turn: 4, status_turn: true },
+        { active_turn: false, code_turn: "!74v", letter_turn: "C", number_turn: 3, status_turn: false },
+        { active_turn: true, code_turn: "KD0p", letter_turn: "B", number_turn: 6, status_turn: true },
+        { active_turn: false, code_turn: "aD41", letter_turn: "B", number_turn: 7, status_turn: false },
+        { active_turn: true, code_turn: "vaXF", letter_turn: "A", number_turn: 1, status_turn: true },
+        { active_turn: false, code_turn: "Ok1v", letter_turn: "B", number_turn: 10, status_turn: false },
+        { active_turn: true, code_turn: "Ol9r", letter_turn: "C", number_turn: 8, status_turn: true }
+    ],
+    asignTurns: [],
+    numberturns:[],
+    awaitRoom:[],
 })
 
 const getters = {
-    getturnuser: (state) => (uid) => {
-        return Object.values(state.turn)
-        .filter(list => list.uid === uid)
+    getListByBilling: (state) => (letter_turn) => {
+        return Object.values(state.turns)
+        .filter(list => list.letter_turn === letter_turn);
     },
 
-    turnAvailable: (state) => (available) => {
-        return Object.values(state.awaitRoom)
-        .filter(list => list.active_turn === available )
+    getListByAnnex: (state) => (letter_turn) => {
+        return Object.values(state.turns)
+        .filter(list => list.letter_turn === letter_turn);
     },
 
-    turnAwait: (state) => (onCall) => {
-        return Object.values(state.awaitRoom)
-        .filter(list => list.active_turn === onCall)
+    getListByHistoyClinic: (state) => (letter_turn) => {
+        return Object.values(state.turns)
+        .filter(list => list.letter_turn === letter_turn);
     }
 }
 
-const actions = {}
+const actions = {
+    async assignTurns({commit}, { uid,email, phone,number_turn,letter_turn,date_turn,code_turn}){
+        commit(types.FETCH_TURNS_REQUEST);
+        const numberTurns = [];
+        const querySnapshot = await getDocs(collection(db, "turns"));
 
-const mutations = {}
+        querySnapshot.forEach((doc) => {
+            numberTurns.push(doc.data().number_turn);
+        });
+
+        if(numberTurns.length > 0){
+            number_turn = Math.max(...numberTurns) + 1;
+        }else{
+            numberTurns.push(0)
+            number_turn = Math.max( ...numberTurns) + 1;
+        }
+
+        code_turn = voucher_code.generate({
+            length: 4,
+            count: 1
+        });
+
+        switch(letter_turn){
+            case "billing":
+                letter_turn = "A";
+            break;
+            case "annex":
+                letter_turn = "B";
+            break;
+            case "historyclinic":
+                letter_turn = "C";
+            break;
+            default:
+                letter_turn = Null;
+            break;
+        }
+
+        date_turn = Date.now();
+        API.AssignTurn({uid, email,phone,number_turn,letter_turn,date_turn,code_turn})
+        .then(( result ) => console.log(result))
+        Functions.displayNotification()
+    }
+}
+
+const mutations = {
+    [types.FETCH_TURNS_REQUEST] (state){
+        state.fetchingData = true;
+        state.error = null;
+    },
+
+    [types.FETCH_TURNS_SUCCESS](state, { turns }){
+        state.fetchingData = false;
+        state.error = null;
+        state.turns = { ...turns };
+    },
+
+    [types.FETCH_TURNS_FAILURE](state, { error }){
+        state.fetchingData = false;
+        state.error = error;
+    },
+
+    [types.ADD_TURNS](state, { turns }){
+        state.turns = { ...turns };
+    },
+
+    [types.FETCH_NUMBER_TURNS_REQUEST](state){
+        state.fetchingData = true;
+        state.error = null;
+    },
+
+    [types.FETCH_NUMBER_TURNS_SUCCESS](state, { number_turns }){
+        state.fetchingData = false;
+        state.error = null;
+        state.numberturns = number_turns;
+    },
+
+    [types.FETCH_NUMBER_TURNS_FAILURE](state, { error }){
+        state.fetchingData = false;
+        state.error = error;
+    }
+}
 
 export default {
     namespaced: true,

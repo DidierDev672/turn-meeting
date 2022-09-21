@@ -1,47 +1,25 @@
 <template>
-<div class="container">
-    <div>
-        <template v-if="uid !==''">
-        <div class="flex-myturn">
-            <orden-turn v-for="(list, index) in listTurn" :key="index"
-            :id="list.id" :n_turn="list.n_turn" :letter_turn="list.letter_turn" :phase="list.phase" />
+    <div class="container py-5">
+        <div class="card-my-turns">
+            <turns-user :uid="uid" />
         </div>
-        </template>
-        <template v-else>
-            <div class="box-user">
-                <span>Debe iniciar sesion para ver sus turnos..</span>
-            </div>
-        </template>
     </div>
-</div>
 </template>
 
 <script>
-import "../styles/myturn.css"
-import types from "../global/index"
+import "../styles/myturn.css";
+import User from "../global/index";
+import TurnsUser from "../container/TurnsUser.vue";
 
-import { mapGetters } from "vuex"
-import OrdenTurn from "../components/OrdenTurn.vue"
 export default {
-    name: 'turn',
+    name: "my-turns",
     data(){
         return{
-            uid: types.userUid,
+            uid: User.userUid
         }
     },
-
     components:{
-        OrdenTurn
+        TurnsUser
     },
-
-    computed:{
-        ...mapGetters('turn',[
-            'getturnuser'
-        ]),
-
-        listTurn(){
-            return this.getturnuser(this.uid)
-        }
-    }
 }
 </script>
